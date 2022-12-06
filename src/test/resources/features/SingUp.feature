@@ -7,8 +7,8 @@
 
   Scenario: Sing up successful
 
-    Given I just Singed up to the ESPN website
+    Given An user just Singed up to the ESPN website
     And navigated to the Watch page
-    When I go back to the Home Page and hover over the user Icon
-    Then I should see my name next to the Welcome text
-    And After I log out I should no longer see my name there
+    When The user goes back to the Home Page and hover over the user Icon
+    Then they should see their name next to the Welcome text
+    And After they log out they should no longer see their name there

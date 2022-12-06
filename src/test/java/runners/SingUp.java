@@ -4,7 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 
-@CucumberOptions( features = "src/test/resources/features/login_saucelabs.feature",
+@CucumberOptions( features = "src/test/resources/features/SingUp.feature",
         glue = "stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         publish = true

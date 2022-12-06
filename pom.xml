@@ -20,6 +20,8 @@
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <webdrivermanager.version>5.3.1</webdrivermanager.version>
+    <aeonbits.version>1.0.12</aeonbits.version>
+    <truth.version>1.1.3</truth.version>
   </properties>
 
   <dependencies>
@@ -61,5 +63,20 @@
       <artifactId>webdrivermanager</artifactId>
       <version>${webdrivermanager.version}</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>${aeonbits.version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.google.truth/truth -->
+    <dependency>
+      <groupId>com.google.truth</groupId>
+      <artifactId>truth</artifactId>
+      <version>${truth.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+
   </dependencies>
 </project>
