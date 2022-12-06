@@ -1,10 +1,10 @@
-package steps;
+package stepdefinitions;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Steps {
+public class SingUpESPNStepDefinitions {
 
     @Given("I just Singed up to the ESPN website")
     public void i_just_singed_up_to_the_espn_website() {
