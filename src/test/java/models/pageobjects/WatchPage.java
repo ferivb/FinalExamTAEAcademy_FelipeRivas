@@ -38,4 +38,13 @@ public class WatchPage extends BasePage{
         DriverManager.explicitWait().until(ExpectedConditions.elementToBeClickable(popUpSearchBar));
         return cardCloseButton.isDisplayed();
     }
+
+    public void closeCard(){
+        clickOn(cardCloseButton);
+    }
+
+    public HomePage goBackHome(){
+        DriverManager.getDriver().navigate().back();
+        return new HomePage();
+    }
 }
