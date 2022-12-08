@@ -1,6 +1,8 @@
 package models.pageobjects;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utils.web.config.diver.DriverManager;
@@ -42,6 +44,9 @@ public class HomePage extends BasePage {
     @FindBy(id = "password-new")
     private WebElement signUpPassword;
 
+    @FindBy(id = "MarketingDescription")
+    private WebElement marketingDescription;
+
     @FindBy(id = "BtnSubmit")
     private WebElement signUpSubmitButton;
 
@@ -50,6 +55,12 @@ public class HomePage extends BasePage {
 
     @FindBy(css = "a[href=\"http://www.espn.com/watch/\"]")
     private WebElement watchButton;
+
+    @FindBy(className = "display-user")
+    private WebElement welcomeText;
+
+    @FindBy(css = ".account-management li:last-child a")
+    private WebElement logoutButton;
 
     public void clickOnLogin(){
         clickOn(userIconButton);
@@ -98,8 +109,9 @@ public class HomePage extends BasePage {
         signUpLastName.sendKeys(validUser.getLastName());
         signUpInputEmail.sendKeys(validUser.getEmail());
         signUpPassword.sendKeys(validUser.getPassword());
-        clickOn(signUpSubmitButton);
-        DriverManager.explicitWait().until(ExpectedConditions.invisibilityOf(loginIframe));
+        clickOn(marketingDescription);
+        scrollToElement(signUpSubmitButton);
+        retryingFindClick(signUpSubmitButton);
         DriverManager.getDriver().switchTo().parentFrame();
         DriverManager.explicitWait().until(ExpectedConditions.visibilityOf(userIconButton));
     }
@@ -107,5 +119,51 @@ public class HomePage extends BasePage {
     public WatchPage goToWatchPage(){
         clickOn(watchButton);
         return new WatchPage();
+    }
+
+    public boolean hoverOverUserIcon(boolean validating){
+        Actions action = new Actions(DriverManager.getDriver());
+        action.moveToElement(userIconButton).perform();
+        return validating;
+    }
+
+    public String retrieveWelcomeMessage(){
+        boolean validating = true;
+        String text = "";
+
+        DriverManager.explicitWait().until(ExpectedConditions.elementToBeClickable(userIconButton));
+        while(hoverOverUserIcon(validating)){
+            text = welcomeText.getText();
+            validating = false;
+        }
+        return text;
+    }
+
+    public void logOut(){
+        clickOn(userIconButton);
+        clickOn(logoutButton);
+        DriverManager.getDriver().navigate().refresh();
+    }
+
+    public void scrollToElement(WebElement element){
+        Actions action = new Actions(DriverManager.getDriver());
+        action.moveToElement(element);
+        action.perform();
+    }
+
+    public boolean retryingFindClick(WebElement element) {
+        boolean result = false;
+        int attempts = 0;
+        while(attempts < 2) {
+            try {
+                clickOn(element);
+                DriverManager.explicitWait().until(ExpectedConditions.invisibilityOf(loginIframe));
+                result = true;
+                break;
+            } catch(TimeoutException e) {
+            }
+            attempts++;
+        }
+        return result;
     }
 }
