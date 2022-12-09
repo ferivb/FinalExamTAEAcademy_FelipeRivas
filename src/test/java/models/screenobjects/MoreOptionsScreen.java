@@ -17,7 +17,6 @@ public class MoreOptionsScreen extends BaseScreen {
     /**
      * Constructor method for standard screens object.
      *
-     * @param driver : AndroidDriver
      * @author Arley.Bolivar, Hans.Marquez
      */
     public MoreOptionsScreen() {
@@ -26,6 +25,12 @@ public class MoreOptionsScreen extends BaseScreen {
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.TextView).textContains(\"Tickets\")")
     private AndroidElement ticketsAndPasses;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.TextView).textContains(\"MagicBand\")")
+    private AndroidElement magicBand;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.TextView).textContains(\"Board\")")
+    private AndroidElement board;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.TextView).textContains(\"Privacy\")")
     private AndroidElement privacyAndLegalButton;
@@ -41,6 +46,20 @@ public class MoreOptionsScreen extends BaseScreen {
      */
     public boolean ticketsAndPassesIsDisplayed(){
         return isElementAvailable(ticketsAndPasses);
+    }
+
+    public boolean magicBandIsDisplayed(){
+        return isElementAvailable(magicBand);
+    }
+
+    public boolean tipBoardIsDisplayed(){
+        return isElementAvailable(board);
+    }
+
+    public boolean moreOptionsScreenIsDisplayed(){
+        return ticketsAndPassesIsDisplayed() &&
+                magicBandIsDisplayed() &&
+                tipBoardIsDisplayed();
     }
 
     /**

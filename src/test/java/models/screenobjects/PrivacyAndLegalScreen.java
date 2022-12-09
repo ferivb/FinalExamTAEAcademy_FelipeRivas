@@ -111,4 +111,14 @@ public class PrivacyAndLegalScreen extends BaseScreen {
         return isElementAvailable(electronicTOS);
     }
 
+    public boolean privacyAndLegalOptionsAreDisplayed(){
+        return titleIsDisplayed() &&
+                privacyPolicyIsDisplayed() &&
+                termsOfUseIsDisplayed() &&
+                supplementalIsDisplayed() &&
+                legalNoticesIsDisplayed() &&
+                propertyRulesIsDisplayed() &&
+                electronicTOSIsDisplayed();
+    }
+
 }

@@ -51,6 +51,7 @@ public class Hooks extends HookConfig {
 
     @Before("@MobileTest")
     public void mobileSetup() throws MalformedURLException {
+        Log.log.info("Launching the Disney Land app");
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ConfigCapabilities.deviceSetUp(capabilities);
         ConfigCapabilities.applicationSetUp(capabilities);
@@ -62,4 +63,10 @@ public class Hooks extends HookConfig {
         }
         setUpStartApp();
         }
+
+    @After("@MobileTest")
+    public void mobileApplicationEnd() {
+        driver.quit();
+    }
+
     }

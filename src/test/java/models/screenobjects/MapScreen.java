@@ -22,12 +22,10 @@ public class MapScreen extends BaseScreen {
     /**
      * Constructor method.
      *
-     * @param driver the driver
      * @author Hans.Marquez
      */
     public MapScreen() {}
 
-//    @AndroidFindBy(uiAutomator = "new UiSelector().resourceIdMatches(\".*categoryTitle\")")
     @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.disney.wdpro.dlr:id/categoryTitle\")")
     private AndroidElement categoryList;
 
@@ -70,6 +68,10 @@ public class MapScreen extends BaseScreen {
      */
     public boolean showListIsDisplayed() {
         return isElementAvailable(showListButton);
+    }
+
+    public boolean mapScreenIsDisplayed(){
+        return filterIsDisplayed() && showListIsDisplayed() && categoryIsDisplayed();
     }
 
     /**
