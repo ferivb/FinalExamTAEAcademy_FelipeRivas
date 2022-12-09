@@ -1,4 +1,4 @@
-  @WebTest
+  @WebTest @SmokeTest
   Feature: Sing Up
 
     In order to securely use my ESPN account

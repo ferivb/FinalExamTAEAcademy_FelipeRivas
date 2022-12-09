@@ -1,4 +1,4 @@
-@MobileTest
+@MobileTest @SmokeTest
 Feature: Privacy & Legal
 
   In order to review the privacy and legal disclaimers

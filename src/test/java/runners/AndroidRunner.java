@@ -11,5 +11,5 @@ import io.cucumber.testng.CucumberOptions;
         tags = "@MobileTest"
 )
 
-public class TestRunner extends AbstractTestNGCucumberTests {
+public class AndroidRunner extends AbstractTestNGCucumberTests {
 }
