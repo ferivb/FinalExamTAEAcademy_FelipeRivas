@@ -6,8 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import models.pageobjects.HomePage;
 import models.pageobjects.WatchPage;
-import org.apache.log4j.Logger;
-import utils.web.helpers.Log;
+import utils.Log;
 
 import static com.google.common.truth.Truth.assertThat;
 

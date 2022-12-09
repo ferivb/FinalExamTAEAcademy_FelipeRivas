@@ -1,22 +1,21 @@
-package utils.web.config.diver;
+package utils.mobile.config;
 
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DriverManager {
+public class AndroidDriverManager {
+    private static final ThreadLocal<AndroidDriver> driver = new ThreadLocal<>();
 
-    private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
-
-    private DriverManager(){
+    private AndroidDriverManager(){
 
     }
 
-    public static WebDriver getDriver(){
+    public static AndroidDriver getDriver(){
         return driver.get();
     }
 
-    public static void setDriver(WebDriver driver){
-        DriverManager.driver.set(driver);
+    public static void setDriver(AndroidDriver driver){
+        AndroidDriverManager.driver.set(driver);
     }
 
     public static WebDriverWait implicitWait(){
@@ -30,7 +29,8 @@ public class DriverManager {
     }
 
     public static void quit(){
-        DriverManager.driver.get().quit();
+        AndroidDriverManager.driver.get().quit();
         driver.remove();
     }
+
 }
