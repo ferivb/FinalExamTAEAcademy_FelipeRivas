@@ -1,4 +1,4 @@
-package utils.web.helpers;
+package utils;
 
 import org.apache.log4j.Logger;
 
