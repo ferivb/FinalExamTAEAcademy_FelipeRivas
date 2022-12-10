@@ -17,11 +17,6 @@ import java.time.Duration;
 
 public class BaseScreen {
     /**
-     * The driver.
-     */
-
-
-    /**
      * Constructor method for standard screens object.
      *
      * @author Arley.Bolivar, Hans.Marquez

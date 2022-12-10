@@ -48,14 +48,32 @@ public class MoreOptionsScreen extends BaseScreen {
         return isElementAvailable(ticketsAndPasses);
     }
 
+    /**
+     * Validates if AndroidElement is present.
+     *
+     * @return boolean
+     * @author Felipe.Rivas
+     */
     public boolean magicBandIsDisplayed(){
         return isElementAvailable(magicBand);
     }
 
+    /**
+     * Validates if AndroidElement is present.
+     *
+     * @return boolean
+     * @author Felipe.Rivas
+     */
     public boolean tipBoardIsDisplayed(){
         return isElementAvailable(board);
     }
 
+    /**
+     * Validates if the More options screen contains all elements.
+     *
+     * @return boolean
+     * @author Felipe.Rivas
+     */
     public boolean moreOptionsScreenIsDisplayed(){
         return ticketsAndPassesIsDisplayed() &&
                 magicBandIsDisplayed() &&
