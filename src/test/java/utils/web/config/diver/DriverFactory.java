@@ -1,13 +1,16 @@
 package utils.web.config.diver;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import utils.mobile.config.AndroidDriverManager;
 
+/**
+ * sets the driver up according to the browser provided
+ *
+ * @author Santiago.gf
+ */
 public enum DriverFactory {
 
     CHROME{
@@ -26,6 +29,11 @@ public enum DriverFactory {
         }
     };
 
+    /**
+     * sets the driver up according to the browser provided
+     *
+     * @author Santiago.gf
+     */
     public abstract WebDriver createDriver();
 
 }

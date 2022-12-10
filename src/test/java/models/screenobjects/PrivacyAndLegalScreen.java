@@ -111,6 +111,12 @@ public class PrivacyAndLegalScreen extends BaseScreen {
         return isElementAvailable(electronicTOS);
     }
 
+    /**
+     * Validates if all legal options are present.
+     *
+     * @return boolean
+     * @author Felipe.Rivas
+     */
     public boolean privacyAndLegalOptionsAreDisplayed(){
         return titleIsDisplayed() &&
                 privacyPolicyIsDisplayed() &&

@@ -1,4 +1,4 @@
-#@MobileTest
+@MobileTest @SmokeTest
 Feature: Map Category List
 
   In order to book a Hotel

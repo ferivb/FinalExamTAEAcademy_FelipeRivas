@@ -25,7 +25,6 @@ public class DashBoardScreen extends BaseScreen {
     @AndroidFindBy(uiAutomator = "new UiSelector().className(android.view.View).description(\"Close Takeover\")")
     private AndroidElement dismissWelcome;
 
-//    @HowToUseLocators(androidAutomation = ALL_POSSIBLE)
     @AndroidFindBy(uiAutomator = "new UiSelector().className(android.widget.ImageView).descriptionContains(\"Map\")")
     private AndroidElement mapButton;
 
